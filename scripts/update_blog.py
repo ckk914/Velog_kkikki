@@ -37,9 +37,16 @@ for entry in feed.entries:
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(entry.description)  # 글 내용을 파일에 작성
 
-        # 깃허브 커밋
-        repo.git.add(file_path)
-        repo.git.commit('-m', f'Add post: {entry.title}')
+    # 깃 설정 추가
+    repo.git.config('user.name', 'KyoungkonCho')
+    repo.git.config('user.email', 'ckk9114@naver.com')
+    # 깃허브 커밋
+    repo.git.add(file_path)
+    repo.git.commit('-m', f'Add post: {entry.title}')
 
-# 변경 사항을 깃허브에 푸시
-repo.git.push()
+    # 변경 사항을 깃허브에 푸시
+    repo.git.push()
+
+
+
+
